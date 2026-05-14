@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+
+    "AZURE_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT;AccountKey=YOUR_KEY;EndpointSuffix=core.windows.net",
+    "AZURE_STORAGE_CONTAINER": "photos",
+
+    "SENDGRID_API_KEY": "SG.xxxxxxxxxxxxxxxxxxxx",
+    "SENDGRID_FROM_EMAIL": "noreply@yourdomain.com"
+  }
+}

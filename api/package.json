@@ -1,0 +1,19 @@
+{
+  "name": "rayan-graduation-api",
+  "version": "1.0.0",
+  "description": "Azure Functions API — Rayan's Graduation Website",
+  "main": "src/functions/*.js",
+  "scripts": {
+    "start": "func start",
+    "build": "echo No build step"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0",
+    "@azure/storage-blob": "^12.26.0",
+    "@sendgrid/mail": "^8.1.4",
+    "uuid": "^11.1.0"
+  }
+}

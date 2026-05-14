@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congratulations Rayan! 🎓</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-brand">🎓 Rayan Alimi</div>
+    <ul class="nav-links">
+      <li><a href="#event">Celebration</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+    </ul>
+    <a href="#rsvp" class="nav-cta">RSVP Now</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="confetti-container" id="confetti"></div>
+    <div class="hero-content">
+      <div class="gmu-badge">
+        <span class="badge-dot"></span>
+        George Mason University • Class of 2025
+      </div>
+      <h1 class="hero-title">Congratulations<br><span class="name-highlight">Rayan!</span></h1>
+      <p class="hero-subtitle">We can't believe you are off to College</p>
+      <div class="hero-caps">🎓</div>
+      <div class="hero-actions">
+        <a href="#rsvp" class="btn-primary">RSVP to Celebrate</a>
+        <a href="#gallery" class="btn-secondary">View Photos</a>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C300,80 900,0 1200,40 L1200,80 L0,80 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Event Details -->
+  <section class="event-details" id="event">
+    <div class="container">
+      <h2 class="section-title">Celebration Details</h2>
+      <p class="section-subtitle">Join us as we celebrate this incredible milestone</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3>Date</h3>
+          <p class="card-main">[DATE TBD]</p>
+          <p class="card-sub">Save the date!</p>
+        </div>
+        <div class="card card-featured">
+          <div class="card-icon">🎉</div>
+          <h3>Celebration</h3>
+          <p class="card-main">Rayan's Graduation Party</p>
+          <p class="card-sub">Come celebrate with us</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🕐</div>
+          <h3>Time</h3>
+          <p class="card-main">[TIME TBD]</p>
+          <p class="card-sub">Festivities begin</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📍</div>
+          <h3>Location</h3>
+          <p class="card-main">[VENUE TBD]</p>
+          <p class="card-sub">[Address TBD]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <h2 class="section-title light">Memories</h2>
+      <p class="section-subtitle light">A lifetime of moments leading to this day</p>
+
+      <!-- Carousel -->
+      <div class="carousel-wrapper">
+        <div class="carousel" id="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-placeholder">
+              <span>📸</span>
+              <p>Photos will appear here once uploaded</p>
+            </div>
+          </div>
+          <button class="carousel-btn prev" id="prevBtn" onclick="prevSlide()" aria-label="Previous photo">&#8249;</button>
+          <button class="carousel-btn next" id="nextBtn" onclick="nextSlide()" aria-label="Next photo">&#8250;</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
+
+      <!-- Upload -->
+      <div class="upload-area">
+        <label class="upload-btn" for="photoInput">
+          <span class="upload-icon">📤</span>
+          Upload Photos
+        </label>
+        <input type="file" id="photoInput" accept="image/*" multiple hidden>
+        <p class="upload-hint">Share your favorite memories of Rayan's journey</p>
+        <div class="upload-progress" id="uploadProgress" hidden>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span id="progressText">Uploading...</span>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="photo-grid" id="photoGrid"></div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="container">
+      <h2 class="section-title light">RSVP</h2>
+      <p class="section-subtitle light">Let us know you're coming to celebrate with Rayan!</p>
+      <form class="rsvp-form" id="rsvpForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Full name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="guests">Number of Attendees <span class="required">*</span></label>
+          <div class="counter-group">
+            <button type="button" class="counter-btn" onclick="adjustGuests(-1)">−</button>
+            <input type="number" id="guests" name="guests" min="1" max="10" value="1" required readonly>
+            <button type="button" class="counter-btn" onclick="adjustGuests(1)">+</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message for Rayan <span class="optional">(optional)</span></label>
+          <textarea id="message" name="message" rows="3" placeholder="Share a message, memory, or words of encouragement..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="submitText">Send RSVP</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <div class="form-feedback" id="formFeedback" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">🎓 Congratulations Rayan Alimi • George Mason University • Class of 2025</p>
+      <p class="footer-tagline">Go Patriots! 🟢🟡</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img src="" alt="Photo of Rayan" id="lightboxImg">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+      <button class="lightbox-prev" onclick="lightboxPrev()" aria-label="Previous">&#8249;</button>
+      <button class="lightbox-next" onclick="lightboxNext()" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

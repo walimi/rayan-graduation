@@ -1,0 +1,7 @@
+api/local.settings.json
+api/node_modules/
+node_modules/
+.env
+.env.local
+dist/
+.DS_Store
