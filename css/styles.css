@@ -384,9 +384,13 @@ section { padding: 5rem 0; }
   background: linear-gradient(170deg, var(--dark-green), var(--mid-green) 70%, var(--green));
 }
 
+.gallery-section .container {
+  max-width: 1280px;
+}
+
 /* Carousel */
 .carousel-wrapper {
-  max-width: 840px;
+  max-width: 1200px;
   margin: 0 auto 2.5rem;
 }
 
