@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupConfetti();
   setupNavScroll();
   loadPhotos();
-  setupUpload();
   setupRSVP();
 });
 
@@ -171,81 +170,6 @@ function lightboxPrev() {
 function lightboxNext() {
   lightboxIndex = (lightboxIndex + 1) % photos.length;
   document.getElementById('lightboxImg').src = photos[lightboxIndex];
-}
-
-// ============================================================
-//  Photo Upload (SAS URL → direct-to-Azure)
-// ============================================================
-
-function setupUpload() {
-  document.getElementById('photoInput').addEventListener('change', async (e) => {
-    const files = Array.from(e.target.files);
-    if (!files.length) return;
-
-    const progressEl = document.getElementById('uploadProgress');
-    const fillEl     = document.getElementById('progressFill');
-    const textEl     = document.getElementById('progressText');
-
-    progressEl.hidden = false;
-    fillEl.style.width = '0';
-
-    const errors = [];
-
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      textEl.textContent = `Uploading ${i + 1} of ${files.length}: ${file.name}`;
-      fillEl.style.width = `${Math.round((i / files.length) * 100)}%`;
-
-      try {
-        await uploadFile(file);
-      } catch (err) {
-        errors.push(file.name);
-        console.error('Upload failed for', file.name, err);
-      }
-    }
-
-    fillEl.style.width = '100%';
-    textEl.textContent = errors.length
-      ? `Done — ${errors.length} file(s) failed: ${errors.join(', ')}`
-      : `All ${files.length} photo${files.length > 1 ? 's' : ''} uploaded!`;
-
-    e.target.value = '';
-
-    setTimeout(() => {
-      progressEl.hidden = true;
-      fillEl.style.width = '0';
-    }, 3000);
-
-    await loadPhotos();
-  });
-}
-
-async function uploadFile(file) {
-  // Step 1 — get a time-limited SAS write URL from our Azure Function
-  const res = await fetch(`${API_BASE}/get-upload-url`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ filename: file.name, contentType: file.type || 'image/jpeg' })
-  });
-
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error || `HTTP ${res.status}`);
-  }
-
-  const { uploadUrl } = await res.json();
-
-  // Step 2 — PUT directly to Azure Blob Storage using the SAS URL
-  const putRes = await fetch(uploadUrl, {
-    method: 'PUT',
-    headers: {
-      'x-ms-blob-type': 'BlockBlob',
-      'Content-Type':   file.type || 'image/jpeg',
-    },
-    body: file,
-  });
-
-  if (!putRes.ok) throw new Error(`Blob PUT failed: HTTP ${putRes.status}`);
 }
 
 // ============================================================
