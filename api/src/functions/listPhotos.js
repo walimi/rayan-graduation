@@ -44,13 +44,13 @@ app.http('photos', {
       const items = [];
       for await (const blob of containerClient.listBlobsFlat()) {
         items.push({
-          url:       `${serviceClient.url}${containerName}/${blob.name}`,
-          createdOn: blob.properties.createdOn ?? new Date(0),
+          url:          `${serviceClient.url}${containerName}/${blob.name}`,
+          lastModified: blob.properties.lastModified ?? new Date(0),
         });
       }
 
-      // Newest first
-      items.sort((a, b) => new Date(b.createdOn) - new Date(a.createdOn));
+      // Most recently modified first
+      items.sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
 
       return {
         status: 200,
