@@ -43,19 +43,20 @@ app.http('photos', {
 
       const items = [];
       for await (const blob of containerClient.listBlobsFlat()) {
-        items.push({
-          url:          `${serviceClient.url}${containerName}/${blob.name}`,
-          lastModified: blob.properties.lastModified ?? new Date(0),
-        });
+        items.push(`${serviceClient.url}${containerName}/${blob.name}`);
       }
 
-      // Most recently modified first
-      items.sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
+      // Sort by the trailing number in the filename (e.g. Rayan_5.jpg → 5)
+      const numOf = (url) => {
+        const match = url.match(/_(\d+)\.[^.]+$/);
+        return match ? parseInt(match[1], 10) : Infinity;
+      };
+      items.sort((a, b) => numOf(a) - numOf(b));
 
       return {
         status: 200,
         headers: { ...CORS, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ photos: items.map((i) => i.url) }),
+        body: JSON.stringify({ photos: items }),
       };
     } catch (err) {
       context.error('listPhotos error:', err);
