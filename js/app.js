@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupNavScroll();
   loadPhotos();
   setupRSVP();
+  setupMusic();
 });
 
 // ---- Navigation scroll effect ----
@@ -272,22 +273,40 @@ function setupConfetti() {
 //  Background Music
 // ============================================================
 
+function setMusicPlaying(playing) {
+  const btn  = document.getElementById('musicBtn');
+  const icon = document.getElementById('musicIcon');
+  btn.classList.toggle('playing', playing);
+  icon.textContent = playing ? '♫' : '♪';
+}
+
+function setupMusic() {
+  const audio = document.getElementById('bgMusic');
+
+  // Attempt autoplay immediately
+  audio.play()
+    .then(() => setMusicPlaying(true))
+    .catch(() => {
+      // Browser blocked autoplay — play on first user interaction
+      const startOnInteraction = () => {
+        audio.play()
+          .then(() => setMusicPlaying(true))
+          .catch(() => {});
+        document.removeEventListener('click', startOnInteraction);
+        document.removeEventListener('keydown', startOnInteraction);
+      };
+      document.addEventListener('click', startOnInteraction);
+      document.addEventListener('keydown', startOnInteraction);
+    });
+}
+
 function toggleMusic() {
   const audio = document.getElementById('bgMusic');
-  const btn   = document.getElementById('musicBtn');
-  const icon  = document.getElementById('musicIcon');
-
   if (audio.paused) {
-    audio.play()
-      .then(() => {
-        btn.classList.add('playing');
-        icon.textContent = '♫';
-      })
-      .catch(() => {});
+    audio.play().then(() => setMusicPlaying(true)).catch(() => {});
   } else {
     audio.pause();
-    btn.classList.remove('playing');
-    icon.textContent = '♪';
+    setMusicPlaying(false);
   }
 }
 
