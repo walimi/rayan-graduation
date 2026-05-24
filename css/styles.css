@@ -382,6 +382,15 @@ section { padding: 5rem 0; }
   font-size: 0.85rem;
 }
 
+.map-link {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition);
+}
+
+.map-link:hover { color: var(--green); }
+
 /* ---- Gallery ---- */
 .gallery-section {
   background: linear-gradient(170deg, var(--dark-green), var(--mid-green) 70%, var(--green));
