@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rayan Alimi Graduation Flyer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e8e8e8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .flyer {
+      width: 8.5in;
+      min-height: 11in;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: linear-gradient(150deg, #0D2E1F 0%, #154734 55%, #206B4D 100%);
+      padding: 0.6in 0.6in 0.45in;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 30%, rgba(0,45,114,0.25) 0%, transparent 65%);
+    }
+
+    .header-content { position: relative; z-index: 1; }
+
+    .school-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(0, 45, 114, 0.25);
+      border: 1px solid rgba(0, 45, 114, 0.5);
+      color: #C0C0C0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 50px;
+      margin-bottom: 0.3in;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: #C0C0C0;
+      border-radius: 50%;
+    }
+
+    .congrats {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.08in;
+    }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.05;
+      margin-bottom: 0.06in;
+    }
+
+    .name span {
+      color: #C0C0C0;
+      font-style: italic;
+      display: block;
+    }
+
+    .caps { font-size: 2.2rem; margin: 0.1in 0; line-height: 1; }
+
+    .header-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      margin-top: 0.06in;
+    }
+
+    /* ---- Wave ---- */
+    .wave { line-height: 0; }
+    .wave svg { display: block; width: 100%; height: 50px; }
+
+    /* ---- Details ---- */
+    .details {
+      padding: 0.35in 0.6in 0.3in;
+      background: #f6f7f6;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #154734;
+      margin-bottom: 0.2in;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: #002D72;
+      margin: 0.1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.2in;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 0.22in 0.18in;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: #002D72;
+    }
+
+    .card-icon { font-size: 1.4rem; margin-bottom: 0.08in; }
+
+    .card h3 {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #154734;
+      margin-bottom: 0.05in;
+    }
+
+    .card-main {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.04in;
+      line-height: 1.3;
+    }
+
+    .card-sub {
+      font-size: 0.72rem;
+      color: #6b7280;
+    }
+
+    .card-sub a {
+      color: #002D72;
+      text-decoration: underline;
+    }
+
+    /* ---- Banner strip ---- */
+    .banner {
+      background: #002D72;
+      padding: 0.18in 0.6in;
+      text-align: center;
+      color: #C0C0C0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    /* ---- RSVP ---- */
+    .rsvp-section {
+      background: linear-gradient(150deg, #0D2E1F 0%, #154734 100%);
+      padding: 0.35in 0.6in;
+      text-align: center;
+      flex: 1;
+    }
+
+    .rsvp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.06in;
+    }
+
+    .rsvp-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: #C0C0C0;
+      margin: 0.07in auto 0;
+      border-radius: 2px;
+    }
+
+    .rsvp-sub {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.8rem;
+      margin-bottom: 0.06in;
+    }
+
+    .rsvp-deadline {
+      color: #C0C0C0;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.22in;
+    }
+
+    .rsvp-numbers {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25in;
+      flex-wrap: wrap;
+    }
+
+    .rsvp-number {
+      display: flex;
+      align-items: center;
+      gap: 0.12in;
+      background: #C0C0C0;
+      color: #0D2E1F;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.14in 0.28in;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .rsvp-divider {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ---- Footer ---- */
+    .footer {
+      background: #0D2E1F;
+      padding: 0.18in 0.6in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(192,192,192,0.15);
+    }
+
+    .footer-text {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.65rem;
+    }
+
+    .footer-tagline {
+      color: #C0C0C0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- Print ---- */
+    @media print {
+      body { background: none; padding: 0; }
+      .flyer { box-shadow: none; width: 100%; min-height: 100vh; }
+    }
+
+    @page { size: letter portrait; margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-content">
+        <div class="school-label">
+          <span class="dot"></span>
+          South County High School &bull; Class of 2026
+        </div>
+        <p class="congrats">You're invited to celebrate</p>
+        <h1 class="name">Rayan<span>Alimi</span></h1>
+        <div class="caps">🎓</div>
+        <p class="header-sub">We can't believe he's off to college!</p>
+      </div>
+    </div>
+
+    <!-- Wave -->
+    <div class="wave">
+      <svg viewBox="0 0 860 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,25 C215,50 645,0 860,25 L860,50 L0,50 Z" fill="#f6f7f6"/>
+      </svg>
+    </div>
+
+    <!-- Event Details -->
+    <div class="details">
+      <p class="section-label">Celebration Details</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3>Date</h3>
+          <p class="card-main">Sunday<br>June 28th, 2026</p>
+          <p class="card-sub">Mark your calendars!</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🕐</div>
+          <h3>Time</h3>
+          <p class="card-main">2:00 – 7:00 PM</p>
+          <p class="card-sub">Festivities begin at 2</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📍</div>
+          <h3>Location</h3>
+          <p class="card-main">Southlake Recreation Center</p>
+          <p class="card-sub"><a href="https://maps.google.com/?q=5070+Higgins+Dr,+Montclair,+VA+22025">5070 Higgins Dr<br>Montclair, VA 22025</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+      Join us for food, fun, and celebrating an incredible milestone!
+    </div>
+
+    <!-- RSVP -->
+    <div class="rsvp-section">
+      <h2 class="rsvp-title">RSVP</h2>
+      <p class="rsvp-sub">Let us know you're coming — text either number below</p>
+      <p class="rsvp-deadline">Please RSVP by Friday, June 19th</p>
+      <div class="rsvp-numbers">
+        <a href="sms:+17039750104" class="rsvp-number">
+          💬 (703) 975-0104
+        </a>
+        <div class="rsvp-divider">or</div>
+        <a href="sms:+17034017802" class="rsvp-number">
+          💬 (703) 401-7802
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="footer-text">🎓 Congratulations Rayan Alimi • South County High School • Class of 2026</span>
+      <span class="footer-tagline">Go Patriots! 🟢🟡</span>
+    </div>
+
+  </div>
+</body>
+</html>
