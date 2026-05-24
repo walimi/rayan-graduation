@@ -1,5 +1,6 @@
 /* ============================================================
-   Rayan's Graduation Website — GMU Colors: #006633 & #FFCC00
+   Rayan's Graduation Website — South County HS Stallions
+   Forest Green #154734 | Navy #002D72 | Silver #C0C0C0
    ============================================================ */
 
 *, *::before, *::after {
@@ -9,13 +10,15 @@
 }
 
 :root {
-  --green:       #006633;
-  --dark-green:  #004922;
-  --mid-green:   #005528;
-  --light-green: #007a3d;
-  --gold:        #FFCC00;
-  --dark-gold:   #e6b800;
-  --light-gold:  #FFF8D6;
+  --green:       #154734;
+  --dark-green:  #0D2E1F;
+  --mid-green:   #1A5940;
+  --light-green: #206B4D;
+  --gold:        #C0C0C0;
+  --dark-gold:   #9EA0A4;
+  --light-gold:  #EEEFF1;
+  --navy:        #002D72;
+  --dark-navy:   #001845;
   --white:       #ffffff;
   --gray-light:  #f6f7f6;
   --gray:        #6b7280;
@@ -47,14 +50,14 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 200;
-  background: rgba(0, 73, 34, 0.97);
+  background: rgba(13, 46, 31, 0.97);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 0.9rem 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
-  border-bottom: 1px solid rgba(255, 204, 0, 0.15);
+  border-bottom: 1px solid rgba(192, 192, 192, 0.15);
 }
 
 .nav-brand {
@@ -84,7 +87,7 @@ body {
 
 .nav-links a:hover {
   color: var(--gold);
-  background: rgba(255, 204, 0, 0.1);
+  background: rgba(192, 192, 192, 0.1);
 }
 
 .nav-cta {
@@ -101,7 +104,7 @@ body {
 }
 
 .nav-cta:hover {
-  background: #ffe033;
+  background: #D5D7D9;
   transform: translateY(-1px);
 }
 
@@ -122,7 +125,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 60% 40%, rgba(255, 204, 0, 0.08) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 60% 40%, rgba(0, 45, 114, 0.12) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -150,12 +153,12 @@ body {
   gap: 1.25rem;
 }
 
-.gmu-badge {
+.school-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 204, 0, 0.15);
-  border: 1px solid rgba(255, 204, 0, 0.4);
+  background: rgba(0, 45, 114, 0.2);
+  border: 1px solid rgba(0, 45, 114, 0.45);
   color: var(--gold);
   font-weight: 600;
   font-size: 0.8rem;
@@ -230,13 +233,13 @@ body {
   border-radius: 50px;
   text-decoration: none;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 4px 20px rgba(255, 204, 0, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 45, 114, 0.3);
 }
 
 .btn-primary:hover {
-  background: #ffe033;
+  background: #D5D7D9;
   transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(255, 204, 0, 0.45);
+  box-shadow: 0 6px 28px rgba(0, 45, 114, 0.4);
 }
 
 .btn-secondary {
@@ -309,7 +312,7 @@ section { padding: 5rem 0; }
   border-radius: 2px;
 }
 
-.section-title.light::after { background: rgba(255, 204, 0, 0.5); }
+.section-title.light::after { background: rgba(192, 192, 192, 0.5); }
 
 .section-subtitle {
   text-align: center;
@@ -346,10 +349,10 @@ section { padding: 5rem 0; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: var(--gold);
+  background: var(--navy);
 }
 
-.card-featured::before { background: linear-gradient(90deg, var(--green), var(--gold)); }
+.card-featured::before { background: linear-gradient(90deg, var(--green), var(--navy)); }
 
 .card:hover {
   transform: translateY(-5px);
@@ -528,7 +531,7 @@ section { padding: 5rem 0; }
 .grid-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 73, 34, 0.55);
+  background: rgba(13, 46, 31, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -628,7 +631,7 @@ section { padding: 5rem 0; }
   font-family: inherit;
 }
 
-.counter-btn:hover { background: rgba(255, 204, 0, 0.25); }
+.counter-btn:hover { background: rgba(192, 192, 192, 0.25); }
 
 .counter-group input[type="number"] {
   width: 60px;
@@ -675,9 +678,9 @@ section { padding: 5rem 0; }
 .submit-btn:hover .btn-arrow { transform: translateX(4px); }
 
 .submit-btn:hover {
-  background: #ffe033;
+  background: #D5D7D9;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(255, 204, 0, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 45, 114, 0.25);
 }
 
 .submit-btn:disabled {
@@ -714,7 +717,7 @@ section { padding: 5rem 0; }
   background: var(--dark-green);
   padding: 2.5rem 2rem;
   text-align: center;
-  border-top: 1px solid rgba(255, 204, 0, 0.15);
+  border-top: 1px solid rgba(192, 192, 192, 0.15);
 }
 
 .footer-text {
