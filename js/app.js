@@ -269,6 +269,29 @@ function setupConfetti() {
 }
 
 // ============================================================
+//  Background Music
+// ============================================================
+
+function toggleMusic() {
+  const audio = document.getElementById('bgMusic');
+  const btn   = document.getElementById('musicBtn');
+  const icon  = document.getElementById('musicIcon');
+
+  if (audio.paused) {
+    audio.play()
+      .then(() => {
+        btn.classList.add('playing');
+        icon.textContent = '♫';
+      })
+      .catch(() => {});
+  } else {
+    audio.pause();
+    btn.classList.remove('playing');
+    icon.textContent = '♪';
+  }
+}
+
+// ============================================================
 //  Utility
 // ============================================================
 
