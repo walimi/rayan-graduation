@@ -103,42 +103,27 @@
     <div class="container">
       <h2 class="section-title light">RSVP</h2>
       <p class="section-subtitle light">Let us know you're coming to celebrate with Rayan!</p>
-      <form class="rsvp-form" id="rsvpForm" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Your Name <span class="required">*</span></label>
-            <input type="text" id="name" name="name" placeholder="Full name" required autocomplete="name">
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
-          </div>
+      <div class="rsvp-phone-box">
+        <p class="rsvp-instruction">Call or text either number below to RSVP</p>
+        <div class="rsvp-numbers">
+          <a href="tel:+17039750104" class="rsvp-number">
+            <span class="rsvp-number-icon">📞</span>
+            <span>(703) 975-0104</span>
+          </a>
+          <div class="rsvp-divider">or</div>
+          <a href="tel:+17034017802" class="rsvp-number">
+            <span class="rsvp-number-icon">📞</span>
+            <span>(703) 401-7802</span>
+          </a>
         </div>
-        <div class="form-group">
-          <label for="guests">Number of Attendees <span class="required">*</span></label>
-          <div class="counter-group">
-            <button type="button" class="counter-btn" onclick="adjustGuests(-1)">−</button>
-            <input type="number" id="guests" name="guests" min="1" max="10" value="1" required readonly>
-            <button type="button" class="counter-btn" onclick="adjustGuests(1)">+</button>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="message">Message for Rayan <span class="optional">(optional)</span></label>
-          <textarea id="message" name="message" rows="3" placeholder="Share a message, memory, or words of encouragement..."></textarea>
-        </div>
-        <button type="submit" class="submit-btn" id="submitBtn">
-          <span id="submitText">Send RSVP</span>
-          <span class="btn-arrow">→</span>
-        </button>
-        <div class="form-feedback" id="formFeedback" hidden></div>
-      </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-text">🎓 Congratulations Rayan Alimi • George Mason University • Class of 2030</p>
+      <p class="footer-text">🎓 Congratulations Rayan Alimi • South County High School • Class of 2026</p>
       <p class="footer-tagline">Go Patriots! 🟢🟡</p>
     </div>
   </footer>
